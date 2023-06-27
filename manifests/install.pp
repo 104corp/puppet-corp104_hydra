@@ -51,7 +51,7 @@ class corp104_hydra::install inherits corp104_hydra {
       provider => 'shell',
       command  => "curl -x ${corp104_hydra::http_proxy} -o ${hydra_download_path} -O -L ${hydra_download_url}",
       path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-      unless   => "cd ${corp104_hydra::tmp_path} && grep Linux_64 ${download_checksum} > checksum.txt && sha256sum -c checksum.txt",
+      unless   => "cd ${corp104_hydra::tmp_path} && grep -i linux_64 hydra_${corp104_hydra::version}_checksums.txt > checksum_linux64.txt && sha256sum -c checksum_linux64.txt",
     }
   }
   else {
@@ -66,7 +66,7 @@ class corp104_hydra::install inherits corp104_hydra {
       provider => 'shell',
       command  => "curl -o ${hydra_download_path} -O -L ${hydra_download_url}",
       path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-      unless   => "cd ${corp104_hydra::tmp_path} && grep Linux_64 ${download_checksum} > checksum.txt && sha256sum -c checksum.txt",
+      unless   => "cd ${corp104_hydra::tmp_path} && grep -i linux_64 hydra_${corp104_hydra::version}_checksums.txt > checksum_linux64.txt && sha256sum -c checksum_linux64.txt",
     }
   }
 
