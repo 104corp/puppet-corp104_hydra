@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-EnvironmentFile=<%= scope.lookupvar('corp104_hydra:environment_file') %>
+EnvironmentFile=<%= scope.lookupvar('corp104_hydra::environment_file') %>
 ExecStart=/bin/sh -c '<%= scope.lookupvar('corp104_hydra::bin_path') %> <%= scope.lookupvar('corp104_hydra::extra_options') %> >> /var/log/hydra/hydra.log 2>>/var/log/hydra/hydra-error.log'
 ExecStop=/bin/kill -2 $MAINPID
 TimeoutSec=0
