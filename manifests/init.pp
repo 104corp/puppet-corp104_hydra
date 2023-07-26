@@ -3,6 +3,9 @@ class corp104_hydra (
   String $version,
   String $tmp_path,
   String $install_path,
+  String $environment_file = '/opt/hydra/.env',
+  String $bin_path = '/opt/hydra/hydra',
+  String $extra_options = 'serve all --dangerous-force-http',
 ){
 
   contain corp104_hydra::install
